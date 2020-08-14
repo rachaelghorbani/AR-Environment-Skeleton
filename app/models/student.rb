@@ -6,10 +6,14 @@ class Student < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  # def self.all_in_grade(grade)
+  #   Student.all.select do |student|
+  #     student.grade_level == grade
+  #   end
+  # end
+
   def self.all_in_grade(grade)
-    Student.all.select do |student|
-      student.grade_level == grade
-    end
+    Student.where(grade_level: grade)
   end
 
 end
